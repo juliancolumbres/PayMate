@@ -22,9 +22,7 @@ const client = new PlaidApi(configuration);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.get("/", (req, res) => {
-  res.json({
-    message: "We got it!",
-  });
+  res.send(200);
 });
 
 app.listen(8000, () => console.log("Listening on port 8000"));
