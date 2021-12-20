@@ -1,2 +1,2 @@
-# Pay-Mate
+# PayMate
 This is an application.
