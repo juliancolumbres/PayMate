@@ -1,1 +1,1 @@
-# PayMate
+# Pay-Mate
