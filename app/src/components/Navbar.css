@@ -1,8 +1,8 @@
 .navbar {
-    background-color: #3c4dac;
-    height: 80px;
+    background-color: #cee1cf;
+    height: 70px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
   }
   
@@ -31,7 +31,7 @@
   
   .nav-text {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding: 8px 0px 8px 16px;
     list-style: none;

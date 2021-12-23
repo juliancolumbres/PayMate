@@ -1,5 +1,8 @@
-.App {
- text-align: center;
+*{
+  font-family: 'Quicksand', sans-serif; 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body{
@@ -11,16 +14,10 @@ body{
 .main{
   text-align: center;
 }
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Lato', sans-serif;
-}
 
-.home,
-.reports,
-.products {
+.dashboard,
+.mates,
+.family {
   display: flex;
   height: 90vh;
   align-items: center;
