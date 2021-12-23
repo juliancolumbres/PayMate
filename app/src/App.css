@@ -1,8 +1,30 @@
-.App {
+*{
+  font-family: 'Quicksand', sans-serif; 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  margin: 0;
+  padding:0;
+  background-color: #e6e9de;
+}
+
+.main{
   text-align: center;
 }
 
-.App-logo {
+.dashboard,
+.mates,
+.family {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +57,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
