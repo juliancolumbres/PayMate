@@ -4,7 +4,7 @@
 - [x] Frontend: React.js
 - [X] Middleware: Express.js, BodyParser
 - [X] Authentification: Firebase
-- [x] Backend: Node.js, Plaid API
+- [x] Backend: Node.js, Plaid API, RDS MySQL
 
 ## Getting Started 🕹
 
