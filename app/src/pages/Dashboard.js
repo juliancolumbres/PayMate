@@ -1,10 +1,14 @@
-import React from 'react'
-
+import React from 'react';
+import app from '../components/base';
+import NavBar from '../components/NavBar';
 function Dashboard() {
     return (
-        <div className='dashboard'> 
+        <> 
+            <NavBar />
+
             <h1>dashboard</h1>
-        </div>
+            <button onClick={()=> app.auth().signOut()}>sign out</button>
+        </>
     )
 }
 

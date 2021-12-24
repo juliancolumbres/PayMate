@@ -24,6 +24,13 @@ body{
   justify-content: center;
   font-size: 3rem;
 }
+
+.App{
+  text-align: center;
+}
+button{
+  text-align: center;
+}
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
