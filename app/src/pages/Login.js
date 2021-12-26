@@ -1,21 +1,24 @@
 import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
-import app from "./base.js";
-import { AuthContext } from "./Auth.js";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { AuthContext } from "../context/auth.js";
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
     async event => {
       event.preventDefault();
       const { email, password } = event.target.elements;
-      try {
-        await app
-          .auth()
-          .signInWithEmailAndPassword(email.value, password.value);
-        history.push("/");
-      } catch (error) {
-        alert(error);
-      }
+      const auth = getAuth();
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
     },
     [history]
   );

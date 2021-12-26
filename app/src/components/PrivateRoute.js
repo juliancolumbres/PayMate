@@ -1,40 +1,20 @@
+
 import React, { useContext } from "react";
-import { Routes, Route, Redirect } from "react-router-dom";
-import { AuthContext } from "./Auth";
+import { AuthContext } from "../context/auth";
+import { Redirect, Route } from "react-router-dom";
 
-const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
-  const {currentUser} = useContext(AuthContext);
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const { user } = useContext(AuthContext);
+
   return (
-      // <Routes>
-
-          <Route
-            {...rest}
-            render={routeProps =>
-              !!currentUser ? (
-                <RouteComponent {...routeProps} />
-              ) : (
-                <Redirect to={"/signup"} />
-              )
-            }
-          />
-      // </Routes>
+    <Route
+      {...rest}
+      exact
+      render={(props) =>
+        user ? <Component {...props} /> : <Redirect to="/login" />
+      }
+    />
   );
 };
 
-
-export default PrivateRoute
-
-// import React from "react";
-// import { Redirect } from "react-router-dom";
-// import { useUserAuth } from "./Auth";
-// const PrivateRoute = ({ children }) => {
-//   const { user } = useUserAuth();
-
-//   console.log("Check user in Private: ", user);
-//   if (!user) {
-//     return <Redirect to="/" />;
-//   }
-//   return children;
-// };
-
-// export default PrivateRoute;
+export default PrivateRoute;
