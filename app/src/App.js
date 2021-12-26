@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import NavBar from "./components/NavBar";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import AuthProvider from "./context/auth.js";
@@ -16,7 +15,7 @@ function App() {
         <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
-        <PrivateRoute path="/" component={<Dashboard />} />
+        <PrivateRoute exact path="/" component={Dashboard} />
         </Switch>
       </BrowserRouter>
     </AuthProvider>

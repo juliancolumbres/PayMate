@@ -1,50 +1,75 @@
-import React, { useCallback, useContext } from "react";
-import { withRouter, Redirect } from "react-router";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { AuthContext } from "../context/auth.js";
+import React, { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../base";
+import { useHistory } from "react-router-dom";
 
-const Login = ({ history }) => {
-  const handleLogin = useCallback(
-    async event => {
-      event.preventDefault();
-      const { email, password } = event.target.elements;
-      const auth = getAuth();
-signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+const Login = () => {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+    error: null,
+    loading: false,
   });
-    },
-    [history]
-  );
 
-  const { currentUser } = useContext(AuthContext);
+  const history = useHistory();
 
-  if (currentUser) {
-    return <Redirect to="/" />;
-  }
+  const { email, password, error, loading } = data;
 
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setData({ ...data, error: null, loading: true });
+    if (!email || !password) {
+      setData({ ...data, error: "All fields are required" });
+    }
+    try {
+      signInWithEmailAndPassword(auth, email, password);
+
+      setData({
+        email: "",
+        password: "",
+        error: null,
+        loading: false,
+      });
+      history.replace("/");
+    } catch (err) {
+      setData({ ...data, error: err.message, loading: false });
+    }
+  };
   return (
-    <div>
-      <h1>Log in</h1>
-      <form onSubmit={handleLogin}>
-        <label>
-          Email
-          <input name="email" type="email" placeholder="Email" />
-        </label>
-        <label>
-          Password
-          <input name="password" type="password" placeholder="Password" />
-        </label>
-        <button type="submit">Log in</button>
+    <section>
+      <h3>Log into your Account</h3>
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="input_container">
+          <label htmlFor="email">Email</label>
+          <input
+            type="text"
+            name="email"
+            value={email}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="input_container">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+          />
+        </div>
+        {error ? <p className="error">{error}</p> : null}
+        <div className="btn_container">
+          <button className="btn" disabled={loading}>
+            {loading ? "Logging in ..." : "Login"}
+          </button>
+        </div>
       </form>
-    </div>
+    </section>
   );
 };
 
-export default withRouter(Login);
+export default Login;

@@ -1,12 +1,11 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
+import NavBarDashboard from '../components/NavBarDashboard';
 function Dashboard() {
+
     return (
         <> 
-            <NavBar />
-
+            <NavBarDashboard/>
             <h1>dashboard</h1>
-            <button >sign out</button>
         </>
     )
 }
