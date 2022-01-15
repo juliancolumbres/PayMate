@@ -47,42 +47,45 @@ const SignUp = () => {
   };
 
   return (
-    <div className="login-signup">
-      <h1>Sign up</h1>
-      <form onSubmit={handleSubmit}>
-      <label>
-          Name
-          <input
-            name="name"
-            type="text"
-            placeholder="Name"
-            value= {name}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Email
-          <input
-            name="email"
-            type="email"
-            placeholder="Email"
-            value= {email}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            value = {password}
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
-      <Link to='/login'>i already have an account</Link>
+    <div className="unauthed-body">
+      <div className="account-form-wrapper">
+        <h1 className="form-title">PayMate</h1>
+        <container className="card">
+          <form className="signup-form" onSubmit={handleSubmit}>
+            <label for="signup-name" class="form-label">Name</label>
+            <input
+              class="form-input"
+              id="signup-name"
+              name="name"
+              type="text"
+              value= {name}
+              onChange={handleChange}
+            />
+            <label for="signup-email" class="form-label">E-mail Address</label>
+            <input
+              class="form-input"
+              id="signup-email"
+              name="email"
+              type="email"
+              value= {email}
+              onChange={handleChange}
+            />
+            <label for="signup-password" class="form-label">Password</label>
+            <input
+              class="form-input"
+              id="signup-password"
+              name="password"
+              type="password"
+              value = {password}
+              onChange={handleChange}
+            />
+            <button className="form-button" type="submit">Sign Up</button>
+          </form>
+        </container>
+        <container className="card">
+          <Link className="unauth-link" to='/login'>i already have an account</Link>
+        </container>
+      </div>
     </div>
   );
 };
