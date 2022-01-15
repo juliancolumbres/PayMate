@@ -8,7 +8,7 @@
 body{
   margin: 0;
   padding:0;
-  background-color: #e6e9de;
+  background-color: #f7f3eb;
 }
 
 .main{
@@ -23,6 +23,13 @@ body{
   align-items: center;
   justify-content: center;
   font-size: 3rem;
+}
+
+.App{
+  text-align: center;
+}
+button{
+  text-align: center;
 }
 /* .App-logo {
   height: 40vmin;

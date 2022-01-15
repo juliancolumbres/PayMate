@@ -1,28 +1,24 @@
-import React from 'react';
-import './App.css';
-import NavBar from './components/NavBar';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import Mates from './pages/Mates';
-import Family from './pages/Family'
+import React from "react";
+import "./App.css";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import AuthProvider from "./context/auth.js";
+import PrivateRoute from "./components/PrivateRoute";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+// import { withRouter } from "react-router";
 
 function App() {
   return (
-    <>
-    <div className='header'>
-      <Router>
-        <NavBar />
-        <Routes>
-          <Route path='/' exact component={Dashboard} />
-          <Route path='/mates' component={Mates} />
-          <Route path='/family' component={Family} />
-        </Routes>
-      </Router>
-    </div>
-    <div className='main'> 
-      {/* <h3>My app content</h3> */}
-    </div>
-    </>
+    <AuthProvider>
+      <BrowserRouter>
+        <Switch>
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={SignUp} />
+        <PrivateRoute exact path="/" component={Dashboard} />
+        </Switch>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

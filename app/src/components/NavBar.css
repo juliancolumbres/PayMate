@@ -76,3 +76,25 @@ span {
     height:50px;
     width:50px;
 }
+
+.signout-custom{
+  background-color: #3cac93;
+  border: none;
+}
+.signout-custom:hover{
+  background-color:#e6e9de;
+}
+.text-center{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 10%;
+  text-align: center;
+  margin: auto;
+  height:30px;
+  font-size: 30px;
+}
+.text-center > img {
+  display: inline-block;
+  margin:auto;
+}

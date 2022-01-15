@@ -1,10 +1,12 @@
-import React from 'react'
-
+import React from 'react';
+import NavBarDashboard from '../components/NavBarDashboard';
 function Dashboard() {
+
     return (
-        <div className='dashboard'> 
+        <> 
+            <NavBarDashboard/>
             <h1>dashboard</h1>
-        </div>
+        </>
     )
 }
 
