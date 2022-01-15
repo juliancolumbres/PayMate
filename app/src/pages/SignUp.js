@@ -1,8 +1,9 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { withRouter, useHistory} from "react-router";
+import { Link } from "react-router-dom";
 import { auth } from "../base";
-
+import './Unauthed.css';
 const SignUp = () => {
   const [data, setData] = useState({
     name: "",
@@ -37,7 +38,7 @@ const SignUp = () => {
         error: null,
         loading: false,
       });
-      history.replace("/");
+      history.push("/");
     } catch (err) {
       setData({ ...data, error: err.message, loading: false });
     }
@@ -46,7 +47,7 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className="login-signup">
       <h1>Sign up</h1>
       <form onSubmit={handleSubmit}>
       <label>
@@ -81,6 +82,7 @@ const SignUp = () => {
         </label>
         <button type="submit">Sign Up</button>
       </form>
+      <Link to='/login'>i already have an account</Link>
     </div>
   );
 };
