@@ -6,3 +6,48 @@
     top: 50%;
     left: 50%;
 }
+
+.unauthed-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account-form-wrapper{
+    width:450px;
+    display: flex;  
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-title{
+    text-align: center;
+}
+
+.card{
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.signup-form{
+    display: flex;  
+    flex-direction: column;
+}
+
+.form-input{
+    padding: 6px;
+    border: 2px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.form-button{
+    margin-top:10px;
+    height: 40px;
+    background-color: gold;
+    border: none;
+}
+
+.unauth-link{
+    text-align: center;
+}
