@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../base";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../base';
+import { useHistory } from 'react-router-dom';
 import './Unauthed.css';
 
 const Login = () => {
   const [data, setData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
     error: null,
     loading: false,
   });
@@ -24,18 +24,18 @@ const Login = () => {
     e.preventDefault();
     setData({ ...data, error: null, loading: true });
     if (!email || !password) {
-      setData({ ...data, error: "All fields are required" });
+      setData({ ...data, error: 'All fields are required' });
     }
     try {
       signInWithEmailAndPassword(auth, email, password);
 
       setData({
-        email: "",
-        password: "",
+        email: '',
+        password: '',
         error: null,
         loading: false,
       });
-      history.replace("/");
+      history.replace('/');
     } catch (err) {
       setData({ ...data, error: err.message, loading: false });
     }
@@ -67,7 +67,7 @@ const Login = () => {
         {error ? <p className="error">{error}</p> : null}
         <div className="btn_container">
           <button className="btn" disabled={loading}>
-            {loading ? "Logging in ..." : "login"}
+            {loading ? 'Logging in ...' : 'login'}
           </button>
         </div>
       </form>

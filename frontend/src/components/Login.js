@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import React from 'react';
+import { useState } from 'react';
 
 function Login() {
   const [registerEmail, setRegisterEmail] = new useState();
@@ -15,7 +15,6 @@ function Login() {
         value={registerEmail}
         onChange={(event) => {
           setRegisterEmail(event.target.value);
-          console.log(registerEmail);
         }}
       />
       <h2>Password</h2>
