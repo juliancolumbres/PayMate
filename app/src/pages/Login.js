@@ -41,37 +41,66 @@ const Login = () => {
     }
   };
   return (
-    <div className="login-signup">
-      <h3>log in</h3>
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="input_container">
-          <label htmlFor="email"></label>
-          <input
-            type="text"
-            name="email"
-            value={email}
-            onChange={handleChange}
-            placeholder="email"
-          />
-        </div>
-        <div className="input_container">
-          <label htmlFor="password"></label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            placeholder="password"
-          />
-        </div>
-        {error ? <p className="error">{error}</p> : null}
-        <div className="btn_container">
-          <button className="btn" disabled={loading}>
-            {loading ? "Logging in ..." : "login"}
-          </button>
-        </div>
-      </form>
+    <div className="unauthed-body">
+      <div className="account-form-wrapper">
+        <h1 className="form-title">PayMate</h1>
+        <container className="card">
+          <form className="unauthed-form" onSubmit={handleSubmit}>
+            <label htmlFor="email" className="form-label">E-mail Address</label>
+            <input
+              className="form-input"
+              type="text"
+              name="email"
+              value={email}
+              onChange={handleChange}
+            />
+            <label htmlFor="password" className="form-label">Password</label>
+            <input
+              className="form-input"
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+            />
+            {error ? <p className="error">{error}</p> : null}
+            <button className="form-button" disabled={loading}>
+              {loading ? "Logging in ..." : "Login"}
+            </button>
+          </form>
+        </container>
+      </div>
     </div>
+    // <div className="login-signup">
+    //   <h3>log in</h3>
+    //   <form className="form" onSubmit={handleSubmit}>
+    //     <div className="input_container">
+    //       <label htmlFor="email"></label>
+    //       <input
+    //         type="text"
+    //         name="email"
+    //         value={email}
+    //         onChange={handleChange}
+    //         placeholder="email"
+    //       />
+    //     </div>
+    //     <div className="input_container">
+    //       <label htmlFor="password"></label>
+    //       <input
+    //         type="password"
+    //         name="password"
+    //         value={password}
+    //         onChange={handleChange}
+    //         placeholder="password"
+    //       />
+    //     </div>
+    //     {error ? <p className="error">{error}</p> : null}
+    //     <div className="btn_container">
+    //       <button className="btn" disabled={loading}>
+    //         {loading ? "Logging in ..." : "login"}
+    //       </button>
+    //     </div>
+    //   </form>
+    // </div>
   );
 };
 
