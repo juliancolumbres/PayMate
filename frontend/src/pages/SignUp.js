@@ -50,28 +50,28 @@ const SignUp = () => {
       <div className="account-form-wrapper">
         <h1 className="form-title">PayMate</h1>
         <container className="card">
-          <form className="signup-form" onSubmit={handleSubmit}>
-            <label for="signup-name" class="form-label">Name</label>
+          <form className="unauthed-form" onSubmit={handleSubmit}>
+            <label htmlFor="signup-name" className="form-label">Name</label>
             <input
-              class="form-input"
+              className="form-input"
               id="signup-name"
               name="name"
               type="text"
               value= {name}
               onChange={handleChange}
             />
-            <label for="signup-email" class="form-label">E-mail Address</label>
+            <label htmlFor="signup-email" className="form-label">E-mail Address</label>
             <input
-              class="form-input"
+              className="form-input"
               id="signup-email"
               name="email"
               type="email"
               value= {email}
               onChange={handleChange}
             />
-            <label for="signup-password" class="form-label">Password</label>
+            <label htmlFor="signup-password" className="form-label">Password</label>
             <input
-              class="form-input"
+              className="form-input"
               id="signup-password"
               name="password"
               type="password"
@@ -82,7 +82,7 @@ const SignUp = () => {
           </form>
         </container>
         <container className="card">
-          <Link className="unauth-link" to='/login'>i already have an account</Link>
+          <Link className="unauthed-link" to='/login'>i already have an account</Link>
         </container>
       </div>
     </div>
