@@ -1,0 +1,12 @@
+name: PayMate Tests
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  steps:
+  - uses: actions/checkout@v2
+  - run: npm run lint
