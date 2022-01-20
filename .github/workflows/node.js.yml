@@ -15,5 +15,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+    - run: npm ci
     - run: cd frontend
     - run: npm run lint
